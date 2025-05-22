@@ -8,7 +8,6 @@
   default: true;
   --color-primary: teal;
   --color-secondary: black;
-  --color-teal-50: teal;
 }
 * {
   font-family: "Poppins", sans-serif;
