@@ -1,21 +1,73 @@
-import React, { use } from "react";
-import { Link } from "react-router";
+import React, { use, useState } from "react";
+import { Link, useNavigate } from "react-router";
 import { AuthContext } from "../Context/AuthContext";
 import Swal from "sweetalert2";
+import { Bounce, toast } from "react-toastify";
+import { FaEye, FaEyeSlash } from "react-icons/fa";
 
 const SignUp = () => {
-  const { createUser } = use(AuthContext);
+  const { createUser, updateUser, setUser } = use(AuthContext);
+  const navigate = useNavigate();
+  const [showpass, setShowPass] = useState(false);
   const handleSignUp = (e) => {
     e.preventDefault();
     const form = e.target;
     const formData = new FormData(form);
-    const { email, password, ...restForm } = Object.fromEntries(
+    const { email, name, photoURL, password, ...restForm } = Object.fromEntries(
       formData.entries()
     );
-    console.log(email, password, restForm);
+    // console.log(email, password, restForm);
+
+    const regularExpress = /(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}/;
+    if (!password.match(/[A-Z]/)) {
+      toast.warn("Use uppercase", {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: false,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+        transition: Bounce,
+      });
+      return;
+    } else if (!password.match(/[a-z]/)) {
+      toast.warn("Use lowercase", {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: false,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+        transition: Bounce,
+      });
+      return;
+    } else if (regularExpress.test(password) == false) {
+      toast.warn("Password should be at least 6 character", {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: false,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+        transition: Bounce,
+      });
+      return;
+    }
+
     createUser(email, password)
       .then((result) => {
-        console.log(result);
+        const results = result.user;
+        updateUser({ displayName: name, photoURL: photoURL })
+          .then(() => {
+            setUser({ ...results, displayName: name, photoURL: photoURL });
+          })
+          .catch(() => {});
         const usersProfile = {
           email,
           ...restForm,
@@ -30,7 +82,6 @@ const SignUp = () => {
         })
           .then((res) => res.json())
           .then((data) => {
-            console.log(data);
             if (data.insertedId) {
               Swal.fire({
                 position: "center",
@@ -39,12 +90,11 @@ const SignUp = () => {
                 showConfirmButton: false,
                 timer: 1500,
               });
+              navigate("/");
             }
           });
       })
-      .catch((error) => {
-        console.log(error);
-      });
+      .catch(() => {});
   };
   return (
     <form onSubmit={handleSignUp}>
@@ -57,7 +107,7 @@ const SignUp = () => {
               type="text"
               name="name"
               className="input"
-              placeholder="Email"
+              placeholder="Name"
             />
             <label className="label">Email</label>
             <input
@@ -71,15 +121,23 @@ const SignUp = () => {
               type="text"
               name="photoURL"
               className="input"
-              placeholder="Password"
+              placeholder="photoURL"
             />
             <label className="label">Password</label>
-            <input
-              type="password"
-              name="password"
-              className="input"
-              placeholder="Password"
-            />
+            <div className="relative">
+              <input
+                type={showpass ? "text" : "password"}
+                name="password"
+                className="input"
+                placeholder="Password"
+              />
+              <p
+                className="absolute top-3 right-8"
+                onClick={() => setShowPass(!showpass)}
+              >
+                {showpass ? <FaEye></FaEye> : <FaEyeSlash></FaEyeSlash>}
+              </p>
+            </div>
             <div>
               <p>
                 Already Have an Account?{" "}
