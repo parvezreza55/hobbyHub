@@ -1,9 +1,10 @@
 import React from "react";
+import Navbar from "../Components/Navbar";
 
 const HomeLayout = () => {
   return (
     <div>
-      <p>Hellow 10</p>
+      <Navbar></Navbar>
     </div>
   );
 };
