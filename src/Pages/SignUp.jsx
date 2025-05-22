@@ -1,6 +1,7 @@
 import React, { use } from "react";
 import { Link } from "react-router";
 import { AuthContext } from "../Context/AuthContext";
+import Swal from "sweetalert2";
 
 const SignUp = () => {
   const { createUser } = use(AuthContext);
@@ -30,6 +31,15 @@ const SignUp = () => {
           .then((res) => res.json())
           .then((data) => {
             console.log(data);
+            if (data.insertedId) {
+              Swal.fire({
+                position: "center",
+                icon: "success",
+                title: "Sign Up Successfully",
+                showConfirmButton: false,
+                timer: 1500,
+              });
+            }
           });
       })
       .catch((error) => {
