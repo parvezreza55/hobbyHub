@@ -1,9 +1,43 @@
-import React from "react";
+import React, { use } from "react";
 import { Link } from "react-router";
+import { AuthContext } from "../Context/AuthContext";
 
 const SignUp = () => {
+  const { createUser } = use(AuthContext);
+  const handleSignUp = (e) => {
+    e.preventDefault();
+    const form = e.target;
+    const formData = new FormData(form);
+    const { email, password, ...restForm } = Object.fromEntries(
+      formData.entries()
+    );
+    console.log(email, password, restForm);
+    createUser(email, password)
+      .then((result) => {
+        console.log(result);
+        const usersProfile = {
+          email,
+          ...restForm,
+        };
+        // fetch to backend
+        fetch("http://localhost:3000/user", {
+          method: "POST",
+          headers: {
+            "content-type": "application/json",
+          },
+          body: JSON.stringify(usersProfile),
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            console.log(data);
+          });
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
   return (
-    <div className="">
+    <form onSubmit={handleSignUp}>
       <h1 className="text-3xl font-bold text-center mt-24 mb-4">Sign Up</h1>
       <div className="card bg-base-100 w-full max-w-sm mx-auto shrink-0 shadow-2xl">
         <div className="card-body">
@@ -47,11 +81,13 @@ const SignUp = () => {
                 </Link>
               </p>
             </div>
-            <button className="btn btn-neutral mt-4">SignUp</button>
+            <button type="submit" className="btn btn-neutral mt-4">
+              SignUp
+            </button>
           </fieldset>
         </div>
       </div>
-    </div>
+    </form>
   );
 };
 
