@@ -74,7 +74,7 @@ const Navbar = () => {
           <Link to={"/"} className=" text-xl">
             {" "}
             <div className="text-2xl md:text-4xl font-bold ">
-              Hobby<span className="text-teal-50">Hub</span>
+              Hobby<span className="text-teal-500">Hub</span>
             </div>
           </Link>
         </div>
@@ -82,7 +82,9 @@ const Navbar = () => {
           <ul className="menu menu-horizontal px-1">{links}</ul>
         </div>
         <div className="navbar-end">
-          <a className="btn">Login</a>
+          <Link to={"/auth/login"} className="btn">
+            Login
+          </Link>
         </div>
       </div>
     </div>
