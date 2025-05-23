@@ -10,7 +10,7 @@ const UpdateGroup = () => {
     e.preventDefault();
     const form = e.target;
     const formData = new FormData(form);
-    formData.append("date", startDate.toISOString());
+    formData.append("date", startDate.toISOString().slice(1, 10));
     const groupData = Object.fromEntries(formData.entries());
   };
   return (

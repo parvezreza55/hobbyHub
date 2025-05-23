@@ -12,7 +12,7 @@ const CreateGroup = () => {
     e.preventDefault();
     const form = e.target;
     const formData = new FormData(form);
-    formData.append("date", startDate.toISOString());
+    formData.append("date", startDate.toISOString().slice(0, 10));
     const groupData = Object.fromEntries(formData.entries());
     // fecth data
     fetch("http://localhost:3000/hobbies", {

@@ -9,6 +9,7 @@ import SignUp from "../Pages/SignUp";
 import LogIn from "../Pages/LogIn";
 import PrivateRoutes from "../PrivateRoutes/PrivateRoutes";
 import UpdateGroup from "../Components/UpdateGroup";
+import DetailsGroups from "../Components/DetailsGroups";
 
 const router = createBrowserRouter([
   {
@@ -30,6 +31,23 @@ const router = createBrowserRouter([
         ),
         loader: () => fetch("http://localhost:3000/hobbies"),
         element: <AllGroup></AllGroup>,
+      },
+      {
+        path: "/allgroup/:id",
+        hydrateFallbackElement: (
+          <>
+            <div className="text-center">
+              <span className="loading loading-spinner loading-xl"></span>
+            </div>
+          </>
+        ),
+        loader: ({ params }) =>
+          fetch(`http://localhost:3000/hobbies/${params.id}`),
+        element: (
+          <PrivateRoutes>
+            <DetailsGroups></DetailsGroups>
+          </PrivateRoutes>
+        ),
       },
       {
         path: "/create-group",
