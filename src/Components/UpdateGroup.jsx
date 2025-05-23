@@ -1,6 +1,6 @@
 import React from "react";
 
-const CreateGroup = () => {
+const UpdateGroup = () => {
   return (
     <div className="w-11/12 mx-auto">
       <h1 className="text-2xl md:text-3xl text-center font-bold my-10">
@@ -103,4 +103,4 @@ const CreateGroup = () => {
   );
 };
 
-export default CreateGroup;
+export default UpdateGroup;

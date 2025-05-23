@@ -3,9 +3,26 @@ import { Link, NavLink } from "react-router";
 import { AuthContext } from "../Context/AuthContext";
 import { FaCircleUser } from "react-icons/fa6";
 import { Tooltip } from "react-tooltip";
+import { Bounce, toast } from "react-toastify";
 
 const Navbar = () => {
   const { user, signOutuser } = use(AuthContext);
+  console.log(user?.photoURL);
+  const handleSignOut = () => {
+    signOutuser().then(() => {
+      toast.warn("Log Out successfully", {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: false,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+        transition: Bounce,
+      });
+    });
+  };
 
   const links = (
     <>
@@ -87,7 +104,7 @@ const Navbar = () => {
           <ul className="menu menu-horizontal px-1">{links}</ul>
         </div>
         <div className="navbar-end space-x-3">
-          <div>
+          <div className="z-10">
             {user ? (
               <>
                 <a data-tooltip-id="my-tooltip">
@@ -96,10 +113,9 @@ const Navbar = () => {
                     className="rounded-full w-10"
                     src={user?.photoURL}
                     alt=""
-                  />{" "}
+                  />
                 </a>
                 <Tooltip
-                  className="z-10"
                   id="my-tooltip"
                   content={user?.displayName}
                   events={["hover"]}
@@ -110,7 +126,12 @@ const Navbar = () => {
             )}
           </div>
           {user ? (
-            <button className="btn  text-white bg-gray-700">LogOut</button>
+            <button
+              onClick={handleSignOut}
+              className="btn  text-white bg-gray-700"
+            >
+              LogOut
+            </button>
           ) : (
             <Link to={"/auth/login"} className="btn">
               Login

@@ -46,7 +46,6 @@ const LogIn = () => {
     signInGoogle()
       .then((result) => {
         const results = result.user;
-        console.log(results);
         setUser(results);
         navigate(location.state || "/");
         fetch("http://localhost:3000/user", {
@@ -66,7 +65,6 @@ const LogIn = () => {
                 showConfirmButton: false,
                 timer: 1500,
               });
-              navigate("/");
             }
           });
       })

@@ -7,6 +7,7 @@ import MyGroup from "../Components/MyGroup";
 import AuthLayOut from "../Layouts/AuthLayOut";
 import SignUp from "../Pages/SignUp";
 import LogIn from "../Pages/LogIn";
+import PrivateRoutes from "../PrivateRoutes/PrivateRoutes";
 
 const router = createBrowserRouter([
   {
@@ -23,7 +24,11 @@ const router = createBrowserRouter([
       },
       {
         path: "/create-group",
-        element: <CreateGroup></CreateGroup>,
+        element: (
+          <PrivateRoutes>
+            <CreateGroup></CreateGroup>
+          </PrivateRoutes>
+        ),
       },
       {
         path: "/my-group",
