@@ -7,7 +7,6 @@ import { Bounce, toast } from "react-toastify";
 
 const Navbar = () => {
   const { user, signOutuser } = use(AuthContext);
-  console.log(user?.photoURL);
   const handleSignOut = () => {
     signOutuser().then(() => {
       toast.warn("Log Out successfully", {
