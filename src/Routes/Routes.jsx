@@ -18,6 +18,15 @@ const router = createBrowserRouter([
     children: [
       {
         index: true,
+        hydrateFallbackElement: (
+          <>
+            <div className="text-center">
+              <span className="loading loading-spinner loading-xl"></span>
+            </div>
+          </>
+        ),
+        loader: () => fetch("http://localhost:3000/hobbies"),
+
         element: <Home></Home>,
       },
       {
