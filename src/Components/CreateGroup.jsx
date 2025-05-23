@@ -14,7 +14,6 @@ const CreateGroup = () => {
     const formData = new FormData(form);
     formData.append("date", startDate.toISOString());
     const groupData = Object.fromEntries(formData.entries());
-    console.log(groupData);
     // fecth data
     fetch("http://localhost:3000/hobbies", {
       method: "POST",
@@ -34,7 +33,6 @@ const CreateGroup = () => {
             timer: 1500,
           });
         }
-        console.log("data after post", data);
       });
   };
   return (
@@ -71,6 +69,8 @@ const CreateGroup = () => {
               <option>Cooking</option>
               <option>Reading</option>
               <option>Writing </option>
+              <option>Gardening </option>
+              <option>Singing </option>
             </select>
           </fieldset>
           <fieldset className="fieldset bg-base-200 border-base-300 rounded-box  border p-4">

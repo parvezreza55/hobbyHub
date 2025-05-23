@@ -8,6 +8,7 @@ import AuthLayOut from "../Layouts/AuthLayOut";
 import SignUp from "../Pages/SignUp";
 import LogIn from "../Pages/LogIn";
 import PrivateRoutes from "../PrivateRoutes/PrivateRoutes";
+import UpdateGroup from "../Components/UpdateGroup";
 
 const router = createBrowserRouter([
   {
@@ -20,6 +21,14 @@ const router = createBrowserRouter([
       },
       {
         path: "/allgroup",
+        hydrateFallbackElement: (
+          <>
+            <div className="text-center">
+              <span className="loading loading-spinner loading-xl"></span>
+            </div>
+          </>
+        ),
+        loader: () => fetch("http://localhost:3000/hobbies"),
         element: <AllGroup></AllGroup>,
       },
       {
@@ -27,6 +36,14 @@ const router = createBrowserRouter([
         element: (
           <PrivateRoutes>
             <CreateGroup></CreateGroup>
+          </PrivateRoutes>
+        ),
+      },
+      {
+        path: "/create-group/update",
+        element: (
+          <PrivateRoutes>
+            <UpdateGroup></UpdateGroup>
           </PrivateRoutes>
         ),
       },
