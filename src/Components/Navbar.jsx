@@ -2,6 +2,7 @@ import React, { use } from "react";
 import { Link, NavLink } from "react-router";
 import { AuthContext } from "../Context/AuthContext";
 import { FaCircleUser } from "react-icons/fa6";
+import { Tooltip } from "react-tooltip";
 
 const Navbar = () => {
   const { user, signOutuser } = use(AuthContext);
@@ -89,10 +90,19 @@ const Navbar = () => {
           <div>
             {user ? (
               <>
-                <img
-                  className="rounded-full w-10"
-                  src={user?.photoURL}
-                  alt=""
+                <a data-tooltip-id="my-tooltip">
+                  {" "}
+                  <img
+                    className="rounded-full w-10"
+                    src={user?.photoURL}
+                    alt=""
+                  />{" "}
+                </a>
+                <Tooltip
+                  className="z-10"
+                  id="my-tooltip"
+                  content={user?.displayName}
+                  events={["hover"]}
                 />
               </>
             ) : (
