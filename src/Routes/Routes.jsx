@@ -58,7 +58,16 @@ const router = createBrowserRouter([
         ),
       },
       {
-        path: "/create-group/update",
+        path: "/my-group/:id",
+        hydrateFallbackElement: (
+          <>
+            <div className="text-center">
+              <span className="loading loading-spinner loading-xl"></span>
+            </div>
+          </>
+        ),
+        loader: ({ params }) =>
+          fetch(`http://localhost:3000/hobbies/${params.id}`),
         element: (
           <PrivateRoutes>
             <UpdateGroup></UpdateGroup>
@@ -67,7 +76,19 @@ const router = createBrowserRouter([
       },
       {
         path: "/my-group",
-        element: <MyGroup></MyGroup>,
+        hydrateFallbackElement: (
+          <>
+            <div className="text-center">
+              <span className="loading loading-spinner loading-xl"></span>
+            </div>
+          </>
+        ),
+        loader: () => fetch("http://localhost:3000/hobbies"),
+        element: (
+          <PrivateRoutes>
+            <MyGroup></MyGroup>
+          </PrivateRoutes>
+        ),
       },
     ],
   },

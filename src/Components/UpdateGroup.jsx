@@ -2,8 +2,12 @@ import React, { use, useState } from "react";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import { AuthContext } from "../Context/AuthContext";
+import { useLoaderData } from "react-router";
+import Swal from "sweetalert2";
 
 const UpdateGroup = () => {
+  const updates = useLoaderData();
+  console.log(updates);
   const { user } = use(AuthContext);
   const [startDate, setStartDate] = useState(new Date());
   const handleUpdate = (e) => {
@@ -12,6 +16,26 @@ const UpdateGroup = () => {
     const formData = new FormData(form);
     formData.append("date", startDate.toISOString().slice(1, 10));
     const groupData = Object.fromEntries(formData.entries());
+    fetch(`http://localhost:3000/hobbies/${updates._id}`, {
+      method: "PUT",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(groupData),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.modifiedCount) {
+          Swal.fire({
+            position: "center",
+            icon: "success",
+            title: "Updated Successfully",
+            showConfirmButton: false,
+            timer: 1500,
+          });
+        }
+        console.log(data);
+      });
   };
   return (
     <div className="w-11/12 mx-auto">
@@ -24,7 +48,6 @@ const UpdateGroup = () => {
             <label className="label">Group Name</label>
             <input
               type="text"
-              required
               name="name"
               className="input w-full"
               placeholder="Group Name"
@@ -34,7 +57,6 @@ const UpdateGroup = () => {
             <label className="label">Hobby Category</label>
             <select
               name="category"
-              required
               defaultValue="Select a category"
               className="select w-full"
             >
@@ -79,7 +101,7 @@ const UpdateGroup = () => {
             />
           </fieldset>
           <fieldset className="fieldset bg-base-200 border-base-300 rounded-box  border p-4">
-            <label className="label">Start Date</label>
+            <label className="label">End Date</label>
             <DatePicker
               showIcon
               selected={startDate}
@@ -91,7 +113,6 @@ const UpdateGroup = () => {
             <label className="label">Image URL</label>
             <input
               type="text"
-              required
               name="photoURL"
               className="input w-full"
               placeholder="Group Name"

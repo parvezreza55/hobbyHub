@@ -101,7 +101,7 @@ const CreateGroup = () => {
             />
           </fieldset>
           <fieldset className="fieldset bg-base-200 border-base-300 rounded-box  border p-4">
-            <label className="label">Start Date</label>
+            <label className="label">End Date</label>
             <DatePicker
               showIcon
               selected={startDate}
