@@ -1,7 +1,11 @@
-import React from "react";
+import React, { use } from "react";
 import { Link, NavLink } from "react-router";
+import { AuthContext } from "../Context/AuthContext";
+import { FaCircleUser } from "react-icons/fa6";
 
 const Navbar = () => {
+  const { user, signOutuser } = use(AuthContext);
+
   const links = (
     <>
       <li>
@@ -81,10 +85,27 @@ const Navbar = () => {
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal px-1">{links}</ul>
         </div>
-        <div className="navbar-end">
-          <Link to={"/auth/login"} className="btn">
-            Login
-          </Link>
+        <div className="navbar-end space-x-3">
+          <div>
+            {user ? (
+              <>
+                <img
+                  className="rounded-full w-10"
+                  src={user?.photoURL}
+                  alt=""
+                />
+              </>
+            ) : (
+              <FaCircleUser></FaCircleUser>
+            )}
+          </div>
+          {user ? (
+            <button className="btn  text-white bg-gray-700">LogOut</button>
+          ) : (
+            <Link to={"/auth/login"} className="btn">
+              Login
+            </Link>
+          )}
         </div>
       </div>
     </div>

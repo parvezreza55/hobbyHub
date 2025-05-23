@@ -4,9 +4,10 @@ import { Link, useLocation, useNavigate } from "react-router";
 import { AuthContext } from "../Context/AuthContext";
 import Swal from "sweetalert2";
 import { Bounce, toast } from "react-toastify";
+import { FcGoogle } from "react-icons/fc";
 
 const LogIn = () => {
-  const { setUser, signIn } = use(AuthContext);
+  const { setUser, signIn, signInGoogle } = use(AuthContext);
   const location = useLocation();
   const navigate = useNavigate();
   const [showpass, setShowPass] = useState(false);
@@ -41,6 +42,36 @@ const LogIn = () => {
         });
       });
   };
+  const handleGoogle = () => {
+    signInGoogle()
+      .then((result) => {
+        const results = result.user;
+        console.log(results);
+        setUser(results);
+        navigate(location.state || "/");
+        fetch("http://localhost:3000/user", {
+          method: "POST",
+          headers: {
+            "content-type": "application/json",
+          },
+          body: JSON.stringify(results),
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            if (data.insertedId) {
+              Swal.fire({
+                position: "center",
+                icon: "success",
+                title: "Sign Up Successfully",
+                showConfirmButton: false,
+                timer: 1500,
+              });
+              navigate("/");
+            }
+          });
+      })
+      .catch(() => {});
+  };
   return (
     <form onSubmit={handleSignIn}>
       <h1 className="text-3xl font-bold text-center mt-24 mb-4">Sign In</h1>
@@ -68,6 +99,12 @@ const LogIn = () => {
                 onClick={() => setShowPass(!showpass)}
               >
                 {showpass ? <FaEye></FaEye> : <FaEyeSlash></FaEyeSlash>}
+              </p>
+            </div>
+            <div>
+              <p onClick={handleGoogle} className="btn input">
+                <FcGoogle size={20}></FcGoogle>
+                Sign In With Google
               </p>
             </div>
             <div>
