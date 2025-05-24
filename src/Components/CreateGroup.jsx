@@ -117,7 +117,7 @@ const CreateGroup = () => {
               required
               name="photoURL"
               className="input w-full dark:bg-white"
-              placeholder="Group Name"
+              placeholder="Image URL"
             />
           </fieldset>
           <fieldset className="fieldset dark:bg-gray-200 bg-base-200 border-base-300 rounded-box  border p-4">

@@ -1,7 +1,6 @@
 import React, { use, useEffect, useState } from "react";
 import { Link, NavLink } from "react-router";
 import { AuthContext } from "../Context/AuthContext";
-import { FaCircleUser } from "react-icons/fa6";
 import { Tooltip } from "react-tooltip";
 import { Bounce, toast } from "react-toastify";
 
@@ -173,7 +172,7 @@ const Navbar = () => {
                 />
               </>
             ) : (
-              <FaCircleUser></FaCircleUser>
+              ""
             )}
           </div>
           {user ? (
