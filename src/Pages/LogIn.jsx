@@ -73,14 +73,14 @@ const LogIn = () => {
   return (
     <form onSubmit={handleSignIn}>
       <h1 className="text-3xl font-bold text-center mt-24 mb-4">Sign In</h1>
-      <div className="card bg-base-100 w-full max-w-sm mx-auto shrink-0 shadow-2xl">
+      <div className="card bg-base-100 dark:bg-gray-200 dark:text-black w-full max-w-sm mx-auto shrink-0 shadow-2xl">
         <div className="card-body">
           <fieldset className="fieldset">
             <label className="label">Email</label>
             <input
               type="email"
               name="email"
-              className="input"
+              className="input dark:bg-white"
               placeholder="Email"
             />
 
@@ -89,7 +89,7 @@ const LogIn = () => {
               <input
                 type={showpass ? "text" : "password"}
                 name="password"
-                className="input"
+                className="input dark:bg-white"
                 placeholder="Password"
               />
               <p
@@ -100,7 +100,10 @@ const LogIn = () => {
               </p>
             </div>
             <div>
-              <p onClick={handleGoogle} className="btn input">
+              <p
+                onClick={handleGoogle}
+                className="btn input dark:bg-white dark:text-black"
+              >
                 <FcGoogle size={20}></FcGoogle>
                 Sign In With Google
               </p>

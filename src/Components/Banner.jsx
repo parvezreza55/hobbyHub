@@ -32,7 +32,7 @@ const Banner = () => {
             <div className="text-center">
               <img
                 src={banner_img1}
-                className="h-[35rem] w-11/12 mx-auto"
+                className="h-[20em] md:h-[35rem] w-11/12 mx-auto"
                 alt=""
               />
             </div>
@@ -41,7 +41,7 @@ const Banner = () => {
             <div className="text-center">
               <img
                 src={banner_img2}
-                className="h-[35rem] w-11/12 mx-auto"
+                className="h-[20em] md:h-[35rem] w-11/12 mx-auto"
                 alt=""
               />
             </div>
@@ -50,7 +50,7 @@ const Banner = () => {
             <div className="text-center">
               <img
                 src={banner_img3}
-                className="h-[35rem] w-11/12 mx-auto"
+                className="h-[20em] md:h-[35rem] w-11/12 mx-auto"
                 alt=""
               />
             </div>
@@ -59,7 +59,7 @@ const Banner = () => {
             <div className="text-center">
               <img
                 src={banner_img4}
-                className="h-[35rem] w-11/12 mx-auto"
+                className="h-[20em] md:h-[35rem] w-11/12 mx-auto"
                 alt=""
               />
             </div>
@@ -68,14 +68,24 @@ const Banner = () => {
             <div className="text-center">
               <img
                 src={banner_img5}
-                className="h-[35rem] w-11/12 mx-auto"
+                className="h-[20em] md:h-[35rem] w-11/12 mx-auto"
                 alt=""
               />
             </div>
           </SwiperSlide>
-          <button className="absolute p-4 rounded-2xl bg-primary z-10 text-white font-bold text-2xl top-[15em] right-[27em]">
-            Enjoy Your Hobby
-          </button>
+          <div className="absolute p-2 md:p-4 rounded-2xl z-5 text-white top-[10em] left-[2em] md:top-[17em] md:left-[5em] lg:top-[15em] lg:left-[8em]">
+            <div>
+              <h1 className="text-2xl md:text-4xl font-bold text-white">
+                HobbyHub
+              </h1>
+              <p className="w-3/4 text-xs md:text-lg">
+                HobbyHub is a community platform that connects people with
+                shared interests across a wide range of hobbies and activities.
+                It encourages collaboration, learning, and engagement through
+                interactive groups, events, and discussions.
+              </p>
+            </div>
+          </div>
         </Swiper>
       </div>
     </>

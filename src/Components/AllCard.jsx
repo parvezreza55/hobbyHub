@@ -1,16 +1,17 @@
 import React from "react";
 import { Link } from "react-router";
+import defaultImg from "../assets/images/tavell.jpg";
 
 const AllCard = ({ group }) => {
   //   console.log(group);
   const { description, name, photoURL, _id } = group;
   return (
     <div>
-      <div className="card h-full bg-base-100 shadow-sm">
+      <div className="card h-full bg-base-100 dark:bg-white dark:text-black shadow-sm">
         <figure>
           <img
-            className="object-cover rounded-t-2xl h-[20em]"
-            src={photoURL}
+            className="object-cover h-[20em]"
+            src={photoURL ? photoURL : defaultImg}
             alt=""
           />
         </figure>

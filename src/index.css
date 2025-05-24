@@ -3,12 +3,10 @@
 @plugin "daisyui" {
   themes: light --default;
 }
-@plugin "daisyui/theme" {
-  name: "light";
-  default: true;
-  --color-primary: teal;
-  --color-secondary: black;
+@plugin "daisyui" {
+  themes: light --default, dark --prefersdark;
 }
+
 * {
   font-family: "Poppins", sans-serif;
 }

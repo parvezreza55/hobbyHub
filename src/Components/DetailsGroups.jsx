@@ -7,7 +7,6 @@ const DetailsGroups = () => {
   const [isDisable, setDisable] = useState(false);
   const { name, category, date, photoURL, members, address, description } =
     details;
-  console.log(date.slice(0, 100));
   const handleJoin = () => {
     const times = new Date();
     const newTimes = times.toISOString().slice(0, 10);
@@ -29,18 +28,18 @@ const DetailsGroups = () => {
   };
   //   console.log(details);
   return (
-    <div className="card bg-base-100 w-11/12 md:w-9/12 mx-auto shadow-sm border my-20">
+    <div className="card bg-base-100 dark:bg-white dark:text-black  w-11/12 md:w-9/12 mx-auto shadow-sm border my-20">
       <figure className="px-10 pt-10">
         <img
           src={photoURL}
           alt="Shoes"
-          className="rounded-2xl h-[30em] w-full"
+          className="rounded-2xl h-[20em] md:h-[30em] w-full"
         />
       </figure>
       <div className="card-body items-center text-center">
         <h2 className="card-title text-2xl">{name}</h2>
         <p className="opacity-60">{description}</p>
-        <div className="grid grid-cols-2 gap-7 font-semibold text-left">
+        <div className="grid grid-cols-2 gap-7 text-xs md:text-lg font-semibold text-left">
           <p>Hobby Category: {category}</p>
           <p>Max Members: {members}</p>
           <p>Meeting Location: {address}</p>

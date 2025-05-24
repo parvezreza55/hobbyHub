@@ -7,7 +7,7 @@ const AllGroup = () => {
   //   console.log(groups);
 
   return (
-    <div>
+    <div className="w-11/12 mx-auto">
       <h1 className="text-2xl md:text-3xl font-bold text-center mt-10">
         All Groups
       </h1>

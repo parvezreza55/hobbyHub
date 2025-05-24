@@ -41,65 +41,69 @@ const MyGroup = () => {
       }
     });
   };
-  console.log(mydata);
   return (
-    <div className="w-11/12 mx-auto">
-      <table className="table w-11/12">
-        {/* head */}
-        <thead>
-          <tr>
-            <th>
-              <label>Sl.No.</label>
-            </th>
-            <th>Group Name</th>
-            <th>Photo</th>
-            <th className="text-center">Options</th>
-            <th></th>
-          </tr>
-        </thead>
-        <tbody>
-          {/* row 1 */}
-          {mydata.map((hobby, index) => (
-            <tr key={hobby._id}>
+    <div className="w-11/12 mx-auto pb-20">
+      <h1 className="text-2xl md:text-3xl font-bold text-center mt-10 mb-7 ">
+        My Group
+      </h1>
+      <div className="border rounded-2xl py-3 shadow-2xl">
+        <table className="table w-11/12 ">
+          {/* head */}
+          <thead>
+            <tr>
               <th>
-                <label>{index + 1}</label>
+                <label>Sl.No.</label>
               </th>
-              <td>{hobby.name}</td>
-              <td className="hidden md:flex">
-                <div className="flex items-center gap-3">
-                  <div className="avatar">
-                    <div className="mask mask-squircle h-12 w-12">
-                      <img
-                        src={hobby.photoURL}
-                        alt="Avatar Tailwind CSS Component"
-                      />
+              <th>Group Name</th>
+              <th className="hidden md:flex">Photo</th>
+              <th className="text-end">Options</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+            {/* row 1 */}
+            {mydata.map((hobby, index) => (
+              <tr key={hobby._id}>
+                <th>
+                  <label>{index + 1}</label>
+                </th>
+                <td className="font-semibold">{hobby.name}</td>
+                <td className="hidden md:flex">
+                  <div className="flex items-center gap-3">
+                    <div className="avatar">
+                      <div className="mask mask-squircle h-12 w-12">
+                        <img
+                          src={hobby.photoURL}
+                          alt="Avatar Tailwind CSS Component"
+                        />
+                      </div>
+                    </div>
+                    <div>
+                      <div className="font-bold">{hobby.name}</div>
                     </div>
                   </div>
-                  <div>
-                    <div className="font-bold">{hobby.name}</div>
-                  </div>
-                </div>
-              </td>
+                </td>
 
-              <td className="text-center">
-                <div className="join join-vertical lg:join-horizontal space-x-3 space-y-3 lg:space-y-0">
-                  <button className="cursor-pointer join-item">
-                    <Link to={`/my-group/${hobby._id}`}>
-                      <HiDocumentDownload size={25} />
-                    </Link>
-                  </button>
-                  <button
-                    onClick={() => handleDelete(hobby._id)}
-                    className="cursor-pointer join-item"
-                  >
-                    <MdDelete size={25} />
-                  </button>
-                </div>
-              </td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
+                <td className="text-end">
+                  <div className="join join-vertical lg:join-horizontal space-x-3 space-y-3 lg:space-y-0">
+                    <button className="cursor-pointer join-item">
+                      <Link to={`/my-group/${hobby._id}`}>
+                        <HiDocumentDownload size={25} />
+                      </Link>
+                    </button>
+                    <button
+                      onClick={() => handleDelete(hobby._id)}
+                      className="cursor-pointer join-item"
+                    >
+                      <MdDelete size={25} />
+                    </button>
+                  </div>
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
     </div>
   );
 };

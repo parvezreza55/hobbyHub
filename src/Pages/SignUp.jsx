@@ -99,28 +99,28 @@ const SignUp = () => {
   return (
     <form onSubmit={handleSignUp}>
       <h1 className="text-3xl font-bold text-center mt-24 mb-4">Sign Up</h1>
-      <div className="card bg-base-100 w-full max-w-sm mx-auto shrink-0 shadow-2xl">
+      <div className="card bg-base-100 dark:bg-gray-200 dark:text-black w-full max-w-sm mx-auto shrink-0 shadow-2xl">
         <div className="card-body">
           <fieldset className="fieldset">
             <label className="label">Name </label>
             <input
               type="text"
               name="name"
-              className="input"
+              className="input dark:bg-white"
               placeholder="Name"
             />
             <label className="label">Email</label>
             <input
               type="email"
               name="email"
-              className="input"
+              className="input dark:bg-white"
               placeholder="Email"
             />
             <label className="label">photoURL </label>
             <input
               type="text"
               name="photoURL"
-              className="input"
+              className="input dark:bg-white"
               placeholder="photoURL"
             />
             <label className="label">Password</label>
@@ -128,7 +128,7 @@ const SignUp = () => {
               <input
                 type={showpass ? "text" : "password"}
                 name="password"
-                className="input"
+                className="input dark:bg-white"
                 placeholder="Password"
               />
               <p
