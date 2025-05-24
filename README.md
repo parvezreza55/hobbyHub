@@ -1,13 +1,25 @@
-# React + Vite
-#HobbyHub 
+# HobbyHub
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+**Live site**:[https://hobby-hub-client-12859.web.app/]
 
-Currently, two official plugins are available:
+Welcome to **HobbyHub**, a platform built to help users find or create local hobby-based groups — whether it's reading, painting, hiking, or gaming. This web application encourages community building through shared passions.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Features
 
-## Expanding the ESLint configuration
+-**SAuthentication System**
+Toast notifications are used for login and form feedback. Google login included.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+-**Private Routes & Authorization**
+Here use protected routes. if anyone access this need to logIn
+
+-**Light & Dark theme**
+Enjoy with light and dark theme made of react,tailwind & daisyUI
+
+-**Create group**
+
+user can create group filling up the reqire form
+
+-**Experince Package**
+1.React Awesome Reveal
+2.React Tooltip
+2.React CountUp

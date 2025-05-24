@@ -73,7 +73,7 @@ const SignUp = () => {
           ...restForm,
         };
         // fetch to backend
-        fetch("http://localhost:3000/user", {
+        fetch("https://hobby-server-psi.vercel.app/user", {
           method: "POST",
           headers: {
             "content-type": "application/json",
@@ -94,7 +94,15 @@ const SignUp = () => {
             }
           });
       })
-      .catch(() => {});
+      .catch((error) => {
+        if (error) {
+          Swal.fire({
+            icon: "error",
+            title: "Already Register",
+            text: "Please LogIn",
+          });
+        }
+      });
   };
   return (
     <form onSubmit={handleSignUp}>
