@@ -10,15 +10,15 @@ const VisitedUser = () => {
       <div className=" flex flex-col md:flex-row space-y-4 md:space-y-0  md:justify-around bg-base-200 rounded-2xl shadow-xl px-10 py-12">
         <div className="text-xl md:text-4xl font-bold text-center">
           <h1 className="text-teal-400 py-3"> Users</h1>
-          <CountUp end={1000}></CountUp>+
+          <CountUp end={1000} duration={10}></CountUp>+
         </div>
         <div className="text-xl md:text-4xl font-bold text-center">
           <h1 className="text-teal-400 py-3"> Created Group</h1>
-          <CountUp end={2000}></CountUp>+
+          <CountUp end={2000} duration={10}></CountUp>+
         </div>
         <div className="text-xl md:text-4xl font-bold text-center">
           <h1 className="text-teal-400 py-3"> Update Group Data</h1>
-          <CountUp end={500}></CountUp>+
+          <CountUp end={500} duration={10}></CountUp>+
         </div>
       </div>
     </div>
