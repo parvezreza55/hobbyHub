@@ -1,0 +1,17 @@
+import React from "react";
+import errorImg from "../assets/images/error.jpg";
+
+const ErrorPage = () => {
+  return (
+    <div>
+      <div className="flex flex-col justify-center items-center py-24">
+        <img className="rounded-2xl" src={errorImg} alt="" />
+        <h1 className="text-xl md:text-4xl text-center font-bold mt-10">
+          404. Page Not Found
+        </h1>
+      </div>
+    </div>
+  );
+};
+
+export default ErrorPage;

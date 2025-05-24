@@ -10,14 +10,17 @@ import LogIn from "../Pages/LogIn";
 import PrivateRoutes from "../PrivateRoutes/PrivateRoutes";
 import UpdateGroup from "../Components/UpdateGroup";
 import DetailsGroups from "../Components/DetailsGroups";
+import ErrorPage from "../Components/ErrorPage";
 
 const router = createBrowserRouter([
   {
     path: "/",
+    errorElement: <ErrorPage></ErrorPage>,
     element: <HomeLayout></HomeLayout>,
     children: [
       {
         index: true,
+        errorElement: <ErrorPage></ErrorPage>,
         hydrateFallbackElement: (
           <>
             <div className="text-center">
@@ -31,6 +34,7 @@ const router = createBrowserRouter([
       },
       {
         path: "/allgroup",
+        errorElement: <ErrorPage></ErrorPage>,
         hydrateFallbackElement: (
           <>
             <div className="text-center">
@@ -43,6 +47,7 @@ const router = createBrowserRouter([
       },
       {
         path: "/allgroup/:id",
+        errorElement: <ErrorPage></ErrorPage>,
         hydrateFallbackElement: (
           <>
             <div className="text-center">
@@ -60,6 +65,7 @@ const router = createBrowserRouter([
       },
       {
         path: "/create-group",
+        errorElement: <ErrorPage></ErrorPage>,
         element: (
           <PrivateRoutes>
             <CreateGroup></CreateGroup>
@@ -68,6 +74,7 @@ const router = createBrowserRouter([
       },
       {
         path: "/my-group/:id",
+        errorElement: <ErrorPage></ErrorPage>,
         hydrateFallbackElement: (
           <>
             <div className="text-center">
@@ -85,6 +92,7 @@ const router = createBrowserRouter([
       },
       {
         path: "/my-group",
+        errorElement: <ErrorPage></ErrorPage>,
         hydrateFallbackElement: (
           <>
             <div className="text-center">
@@ -103,6 +111,7 @@ const router = createBrowserRouter([
   },
   {
     path: "/auth",
+    errorElement: <ErrorPage></ErrorPage>,
     element: <AuthLayOut></AuthLayOut>,
     children: [
       {
