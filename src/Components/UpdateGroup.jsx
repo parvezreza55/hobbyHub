@@ -13,7 +13,7 @@ const UpdateGroup = () => {
     e.preventDefault();
     const form = e.target;
     const formData = new FormData(form);
-    formData.append("date", startDate.toISOString().slice(1, 10));
+    formData.append("date", startDate.toISOString().slice(0, 10));
     const groupData = Object.fromEntries(formData.entries());
     fetch(`https://hobby-server-psi.vercel.app/hobbies/${updates._id}`, {
       method: "PUT",
