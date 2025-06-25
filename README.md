@@ -144,10 +144,10 @@ This application allows users to:
 
 ```bash
 # Step 1: Clone the repository
-git clone https://github.com/your-username/lawyer-booking-app.git
+git clone https://github.com/parvezreza55/hobbyHub.git
 
 # Step 2: Navigate to the project directory
-cd lawyer-booking-app
+cd hobbyHub
 
 # Step 3: Install dependencies
 npm install
