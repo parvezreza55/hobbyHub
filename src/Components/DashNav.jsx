@@ -1,5 +1,6 @@
 import React from "react";
-import { NavLink } from "react-router";
+import { Link, NavLink } from "react-router";
+import logo from "../assets/images/logo.png";
 
 const DashNav = () => {
   const links = (
@@ -52,7 +53,7 @@ const DashNav = () => {
     </>
   );
   return (
-    <div className="bg-base-300 h-fit md:h-[20em] md:p-10 rounded-2xl mt-7 md:mt-36">
+    <div className="bg-base-300 w-fit h-fit md:h-[20em] md:p-10 rounded-2xl mt-7 md:mt-36 sticky top-36">
       <div className="dropdown">
         <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
           <svg
@@ -73,13 +74,21 @@ const DashNav = () => {
         </div>
         <ul
           tabIndex={0}
-          className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow"
+          className="menu menu-sm dropdown-content bg-base-300 rounded-box z-50 mt-3 w-52 p-2 shadow"
         >
           {links}
         </ul>
       </div>
       <div className=" hidden md:flex flex-col">
-        <h1 className="text-xl md:text-3xl font-bold">HobbyHub</h1>
+        <Link to={"/"} className=" text-xl">
+          {" "}
+          <div className="text-2xl md:text-4xl font-bold flex items-center">
+            <img className="w-13" src={logo} alt="" />
+            <div>
+              Hobby<span className="text-teal-500">Hub</span>
+            </div>
+          </div>
+        </Link>
         <div className="">
           {/* div 1  */}
           <div>

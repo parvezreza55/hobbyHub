@@ -21,12 +21,12 @@ const DashBoardLaout = () => {
   };
 
   return (
-    <div className="flex gap-4">
+    <div className="md:flex gap-4">
       <div>
         <DashNav></DashNav>
       </div>
-      <div className="md:px-10 flex-1">
-        <div className="flex justify-end mt-7">
+      <div className="md:px-10 md:flex-1">
+        <div className="flex justify-end -mt-12 md:mt-7">
           <label className="swap swap-rotate">
             {/* this hidden checkbox controls the state */}
             <input

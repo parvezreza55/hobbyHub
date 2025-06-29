@@ -1,12 +1,10 @@
 import React, { useEffect, useState } from "react";
-import OverView from "../DashComponents/OverView";
 import { Fa42Group, FaUser, FaUserGroup } from "react-icons/fa6";
 import { MdGroupAdd, MdGroupRemove } from "react-icons/md";
 import LoginInformation from "../DashComponents/LoginInformation";
 
 const Dashboard = () => {
   const [users, setUsers] = useState([]);
-  console.log(users);
   useEffect(() => {
     fetch("https://hobby-hub-server-bice.vercel.app/user")
       .then((res) => res.json())
@@ -15,7 +13,7 @@ const Dashboard = () => {
   return (
     <div className="space-y-5 mt-4">
       {/* stats  */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
+      <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-5 justify-items-center">
         <div className="bg-base-200 px-10 py-3 rounded-2xl w-fit ">
           <h1 className="font-semibold opacity-60 my-2">Total users</h1>
           <div className="flex justify-evenly items-center">
@@ -55,7 +53,6 @@ const Dashboard = () => {
         </div>
       </div>
       <div>
-        {/* <OverView></OverView> */}
         <LoginInformation></LoginInformation>
       </div>
     </div>

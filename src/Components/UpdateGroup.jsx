@@ -33,7 +33,6 @@ const UpdateGroup = () => {
             timer: 1500,
           });
         }
-        console.log(data);
       });
   };
   return (

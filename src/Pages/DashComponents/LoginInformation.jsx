@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 
 const LoginInformation = () => {
   const [users, setUsers] = useState([]);
-  console.log(users);
   useEffect(() => {
     fetch("https://hobby-hub-server-bice.vercel.app/user")
       .then((res) => res.json())

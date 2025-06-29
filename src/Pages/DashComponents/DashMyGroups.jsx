@@ -8,7 +8,6 @@ import { AuthContext } from "../../Context/AuthContext";
 
 const MyGroup = () => {
   const { user } = use(AuthContext);
-  console.log(user);
   const [mydatas, setMydatas] = useState([]);
   const [mydata, setHobbies] = useState([]);
 
@@ -25,7 +24,6 @@ const MyGroup = () => {
   }, [mydatas, user]);
 
   const handleDelete = (id) => {
-    console.log(id);
     Swal.fire({
       title: "Are you sure?",
       text: "You won't be able to revert this!",
@@ -40,9 +38,7 @@ const MyGroup = () => {
           method: "DELETE",
         })
           .then((res) => res.json())
-          .then((data) => {
-            console.log(data);
-          });
+          .then(() => {});
         Swal.fire({
           title: "Deleted!",
           text: "Your file has been deleted.",
