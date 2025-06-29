@@ -73,7 +73,7 @@ const SignUp = () => {
           ...restForm,
         };
         // fetch to backend
-        fetch("https://hobby-hub-server-bice.vercel.app//user", {
+        fetch("https://hobby-hub-server-bice.vercel.app/user", {
           method: "POST",
           headers: {
             "content-type": "application/json",

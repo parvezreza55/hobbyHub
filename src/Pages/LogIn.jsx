@@ -48,7 +48,7 @@ const LogIn = () => {
         const results = result.user;
         setUser(results);
         navigate(location.state || "/");
-        fetch("https://hobby-hub-server-bice.vercel.app//user", {
+        fetch("https://hobby-hub-server-bice.vercel.app/user", {
           method: "POST",
           headers: {
             "content-type": "application/json",

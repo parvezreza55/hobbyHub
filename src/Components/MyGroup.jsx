@@ -23,7 +23,7 @@ const MyGroup = () => {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`https://hobby-hub-server-bice.vercel.app//hobbies/${id}`, {
+        fetch(`https://hobby-hub-server-bice.vercel.app/hobbies/${id}`, {
           method: "DELETE",
         })
           .then((res) => res.json())
