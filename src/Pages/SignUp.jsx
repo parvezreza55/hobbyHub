@@ -73,7 +73,7 @@ const SignUp = () => {
           ...restForm,
         };
         // fetch to backend
-        fetch("http://localhost:3000/user", {
+        fetch("https://hobby-server-psi.vercel.app/user", {
           method: "POST",
           headers: {
             "content-type": "application/json",

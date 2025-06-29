@@ -6,7 +6,7 @@ import { AuthContext } from "../../Context/AuthContext";
 const DashAllgroup = () => {
   const [groups, setGroups] = useState([]);
   useEffect(() => {
-    fetch("http://localhost:3000/hobbies")
+    fetch("https://hobby-server-psi.vercel.app/hobbies")
       .then((res) => res.json())
       .then((data) => setGroups(data));
   }, []);

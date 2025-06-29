@@ -8,7 +8,7 @@ const Dashboard = () => {
   const [users, setUsers] = useState([]);
   console.log(users);
   useEffect(() => {
-    fetch("http://localhost:3000/user")
+    fetch("https://hobby-server-psi.vercel.app/user")
       .then((res) => res.json())
       .then((data) => setUsers(data));
   }, []);

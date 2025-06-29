@@ -13,7 +13,7 @@ const MyGroup = () => {
   const [mydata, setHobbies] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:3000/hobbies")
+    fetch("https://hobby-server-psi.vercel.app/hobbies")
       .then((res) => res.json())
       .then((data) => setMydatas(data));
   }, []);
@@ -36,7 +36,7 @@ const MyGroup = () => {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`http://localhost:3000/hobbies/${id}`, {
+        fetch(`https://hobby-server-psi.vercel.app/hobbies/${id}`, {
           method: "DELETE",
         })
           .then((res) => res.json())

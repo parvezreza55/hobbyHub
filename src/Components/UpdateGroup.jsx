@@ -15,7 +15,7 @@ const UpdateGroup = () => {
     const formData = new FormData(form);
     formData.append("date", startDate.toISOString().slice(0, 10));
     const groupData = Object.fromEntries(formData.entries());
-    fetch(`http://localhost:3000/hobbies/${updates._id}`, {
+    fetch(`https://hobby-server-psi.vercel.app/hobbies/${updates._id}`, {
       method: "PUT",
       headers: {
         "content-type": "application/json",
