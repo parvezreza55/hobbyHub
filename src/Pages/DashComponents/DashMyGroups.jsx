@@ -13,9 +13,7 @@ const MyGroup = () => {
   const [mydata, setHobbies] = useState([]);
 
   useEffect(() => {
-    fetch(
-      "https://hobby-hub-server-h7oib83zw-parvezreza55s-projects.vercel.app/hobbies"
-    )
+    fetch("https://hobby-hub-server-bice.vercel.app//hobbies")
       .then((res) => res.json())
       .then((data) => setMydatas(data));
   }, []);
@@ -38,12 +36,9 @@ const MyGroup = () => {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(
-          `https://hobby-hub-server-h7oib83zw-parvezreza55s-projects.vercel.app/hobbies/${id}`,
-          {
-            method: "DELETE",
-          }
-        )
+        fetch(`https://hobby-hub-server-bice.vercel.app//hobbies/${id}`, {
+          method: "DELETE",
+        })
           .then((res) => res.json())
           .then((data) => {
             console.log(data);

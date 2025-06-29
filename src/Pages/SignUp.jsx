@@ -73,16 +73,13 @@ const SignUp = () => {
           ...restForm,
         };
         // fetch to backend
-        fetch(
-          "https://hobby-hub-server-h7oib83zw-parvezreza55s-projects.vercel.app/user",
-          {
-            method: "POST",
-            headers: {
-              "content-type": "application/json",
-            },
-            body: JSON.stringify(usersProfile),
-          }
-        )
+        fetch("https://hobby-hub-server-bice.vercel.app//user", {
+          method: "POST",
+          headers: {
+            "content-type": "application/json",
+          },
+          body: JSON.stringify(usersProfile),
+        })
           .then((res) => res.json())
           .then((data) => {
             if (data.insertedId) {

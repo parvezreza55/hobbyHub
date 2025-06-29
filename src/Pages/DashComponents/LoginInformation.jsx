@@ -4,9 +4,7 @@ const LoginInformation = () => {
   const [users, setUsers] = useState([]);
   console.log(users);
   useEffect(() => {
-    fetch(
-      "https://hobby-hub-server-h7oib83zw-parvezreza55s-projects.vercel.app/user"
-    )
+    fetch("https://hobby-hub-server-bice.vercel.app//user")
       .then((res) => res.json())
       .then((data) => setUsers(data));
   }, []);

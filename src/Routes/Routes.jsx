@@ -33,9 +33,7 @@ const router = createBrowserRouter([
           </>
         ),
         loader: () =>
-          fetch(
-            "https://hobby-hub-server-h7oib83zw-parvezreza55s-projects.vercel.app/hobbies"
-          ),
+          fetch("https://hobby-hub-server-bice.vercel.app//hobbies"),
 
         element: <Home></Home>,
       },
@@ -50,9 +48,7 @@ const router = createBrowserRouter([
           </>
         ),
         loader: () =>
-          fetch(
-            "https://hobby-hub-server-h7oib83zw-parvezreza55s-projects.vercel.app/hobbies"
-          ),
+          fetch("https://hobby-hub-server-bice.vercel.app//hobbies"),
         element: <AllGroup></AllGroup>,
       },
       {
@@ -67,7 +63,7 @@ const router = createBrowserRouter([
         ),
         loader: ({ params }) =>
           fetch(
-            `https://hobby-hub-server-h7oib83zw-parvezreza55s-projects.vercel.app/hobbies/${params.id}`
+            `https://hobby-hub-server-bice.vercel.app//hobbies/${params.id}`
           ),
         element: (
           <PrivateRoutes>
@@ -96,7 +92,7 @@ const router = createBrowserRouter([
         ),
         loader: ({ params }) =>
           fetch(
-            `https://hobby-hub-server-h7oib83zw-parvezreza55s-projects.vercel.app/hobbies/${params.id}`
+            `https://hobby-hub-server-bice.vercel.app//hobbies/${params.id}`
           ),
         element: (
           <PrivateRoutes>
@@ -115,9 +111,7 @@ const router = createBrowserRouter([
           </>
         ),
         loader: () =>
-          fetch(
-            "https://hobby-hub-server-h7oib83zw-parvezreza55s-projects.vercel.app/hobbies"
-          ),
+          fetch("https://hobby-hub-server-bice.vercel.app//hobbies"),
         element: (
           <PrivateRoutes>
             <MyGroup></MyGroup>
