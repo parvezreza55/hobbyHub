@@ -48,13 +48,16 @@ const LogIn = () => {
         const results = result.user;
         setUser(results);
         navigate(location.state || "/");
-        fetch("https://hobby-server-psi.vercel.app/user", {
-          method: "POST",
-          headers: {
-            "content-type": "application/json",
-          },
-          body: JSON.stringify(results),
-        })
+        fetch(
+          "https://hobby-hub-server-h7oib83zw-parvezreza55s-projects.vercel.app/user",
+          {
+            method: "POST",
+            headers: {
+              "content-type": "application/json",
+            },
+            body: JSON.stringify(results),
+          }
+        )
           .then((res) => res.json())
           .then((data) => {
             if (data.insertedId) {

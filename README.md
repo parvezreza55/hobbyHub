@@ -123,7 +123,7 @@ This application allows users to:
 
 ### 🔹 Start Point (Base URL)
 
-- `https://hobby-server-psi.vercel.app`
+- `https://hobby-hub-server-h7oib83zw-parvezreza55s-projects.vercel.app`
 
 ### 🧍 User API (end point)
 

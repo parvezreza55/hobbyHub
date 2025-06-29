@@ -15,13 +15,16 @@ const UpdateGroup = () => {
     const formData = new FormData(form);
     formData.append("date", startDate.toISOString().slice(0, 10));
     const groupData = Object.fromEntries(formData.entries());
-    fetch(`https://hobby-server-psi.vercel.app/hobbies/${updates._id}`, {
-      method: "PUT",
-      headers: {
-        "content-type": "application/json",
-      },
-      body: JSON.stringify(groupData),
-    })
+    fetch(
+      `https://hobby-hub-server-h7oib83zw-parvezreza55s-projects.vercel.app/hobbies/${updates._id}`,
+      {
+        method: "PUT",
+        headers: {
+          "content-type": "application/json",
+        },
+        body: JSON.stringify(groupData),
+      }
+    )
       .then((res) => res.json())
       .then((data) => {
         if (data.modifiedCount) {

@@ -6,7 +6,8 @@ const AllGroup = () => {
   const [sortOrder, setSortOrder] = useState("");
   const [filter, setFilter] = useState("");
   useEffect(() => {
-    let url = "https://hobby-server-psi.vercel.app/hobbies";
+    let url =
+      "https://hobby-hub-server-h7oib83zw-parvezreza55s-projects.vercel.app/hobbies";
     const params = [];
     if (sortOrder) params.push(`sort=${sortOrder}`);
     if (filter) params.push(`category=${filter}`);
