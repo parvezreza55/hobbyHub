@@ -3,6 +3,7 @@ import { Link, NavLink } from "react-router";
 import { AuthContext } from "../Context/AuthContext";
 import { Tooltip } from "react-tooltip";
 import { Bounce, toast } from "react-toastify";
+import logo from "../assets/images/logo.png";
 
 const Navbar = () => {
   const [theme, setTheme] = useState(
@@ -37,7 +38,31 @@ const Navbar = () => {
       });
     });
   };
+  const link = (
+    <>
+      <li>
+        <NavLink
+          className={({ isActive }) =>
+            isActive ? "underline  border-teal-100" : "hover:bg-teal-300"
+          }
+          to={"/"}
+        >
+          Home
+        </NavLink>
+      </li>
 
+      <li>
+        <NavLink
+          className={({ isActive }) =>
+            isActive ? "underline  border-teal-100" : "hover:bg-teal-300"
+          }
+          to={"/allgroup"}
+        >
+          All Groups
+        </NavLink>
+      </li>
+    </>
+  );
   const links = (
     <>
       <li>
@@ -48,6 +73,16 @@ const Navbar = () => {
           to={"/"}
         >
           Home
+        </NavLink>
+      </li>
+      <li>
+        <NavLink
+          className={({ isActive }) =>
+            isActive ? "underline  border-teal-100" : "hover:bg-teal-300"
+          }
+          to={"/dashboard"}
+        >
+          Dashboard
         </NavLink>
       </li>
       <li>
@@ -83,7 +118,7 @@ const Navbar = () => {
     </>
   );
   return (
-    <div className="dark:bg-gray-100 bg-base-100 dark:text-black  shadow-sm sticky top-0 z-10 backdrop-blur-3xl">
+    <div className="dark:bg-gray-50 bg-base-200 dark:text-black  shadow-sm sticky top-0 z-10 backdrop-blur-3xl">
       <div className="navbar md:w-11/12 mx-auto py-4 ">
         <div className="navbar-start">
           <div className="dropdown">
@@ -112,18 +147,21 @@ const Navbar = () => {
               tabIndex={0}
               className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow dark:bg-white dark:text-black"
             >
-              {links}
+              {user ? links : link}
             </ul>
           </div>
           <Link to={"/"} className=" text-xl">
             {" "}
-            <div className="text-2xl md:text-4xl font-bold ">
-              Hobby<span className="text-teal-500">Hub</span>
+            <div className="text-2xl md:text-4xl font-bold flex items-center">
+              <img className="w-13" src={logo} alt="" />
+              <div>
+                Hobby<span className="text-teal-500">Hub</span>
+              </div>
             </div>
           </Link>
         </div>
         <div className="navbar-center hidden lg:flex">
-          <ul className="menu menu-horizontal px-1">{links}</ul>
+          <ul className="menu menu-horizontal px-1"> {user ? links : link}</ul>
         </div>
         <div className="navbar-end space-x-3">
           <div>
@@ -183,9 +221,14 @@ const Navbar = () => {
               LogOut
             </button>
           ) : (
-            <Link to={"/auth/login"} className="btn">
-              Login
-            </Link>
+            <div className="space-x-2">
+              <Link to={"/auth/login"} className="btn">
+                Login
+              </Link>
+              <Link to={"/auth/register"} className="btn">
+                Register
+              </Link>
+            </div>
           )}
         </div>
       </div>

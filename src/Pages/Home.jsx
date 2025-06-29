@@ -5,6 +5,7 @@ import { useLoaderData } from "react-router";
 import Footer from "../Components/Footer";
 import Riview from "../Components/Riview";
 import VisitedUser from "../Components/VisitedUser";
+import AboutUs from "../Components/AboutUs";
 
 const Home = () => {
   const hobbyData = useLoaderData();
@@ -14,6 +15,7 @@ const Home = () => {
       <Feature hobbyData={hobbyData}></Feature>
       <Riview></Riview>
       <VisitedUser></VisitedUser>
+      <AboutUs></AboutUs>
     </div>
   );
 };

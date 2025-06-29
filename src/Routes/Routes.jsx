@@ -11,6 +11,10 @@ import PrivateRoutes from "../PrivateRoutes/PrivateRoutes";
 import UpdateGroup from "../Components/UpdateGroup";
 import DetailsGroups from "../Components/DetailsGroups";
 import ErrorPage from "../Components/ErrorPage";
+import DashBoardLaout from "../Layouts/DashBoardLaout";
+import Dashboard from "../Pages/Dashboard/Dashboard";
+import DashAllgroup from "../Pages/DashComponents/DashAllgroup";
+import DashMyGroups from "../Pages/DashComponents/DashMyGroups";
 
 const router = createBrowserRouter([
   {
@@ -28,7 +32,7 @@ const router = createBrowserRouter([
             </div>
           </>
         ),
-        loader: () => fetch("https://hobby-server-psi.vercel.app/hobbies"),
+        loader: () => fetch("http://localhost:3000/hobbies"),
 
         element: <Home></Home>,
       },
@@ -42,7 +46,7 @@ const router = createBrowserRouter([
             </div>
           </>
         ),
-        loader: () => fetch("https://hobby-server-psi.vercel.app/hobbies"),
+        loader: () => fetch("http://localhost:3000/hobbies"),
         element: <AllGroup></AllGroup>,
       },
       {
@@ -56,7 +60,7 @@ const router = createBrowserRouter([
           </>
         ),
         loader: ({ params }) =>
-          fetch(`https://hobby-server-psi.vercel.app/hobbies/${params.id}`),
+          fetch(`http://localhost:3000/hobbies/${params.id}`),
         element: (
           <PrivateRoutes>
             <DetailsGroups></DetailsGroups>
@@ -83,7 +87,7 @@ const router = createBrowserRouter([
           </>
         ),
         loader: ({ params }) =>
-          fetch(`https://hobby-server-psi.vercel.app/hobbies/${params.id}`),
+          fetch(`http://localhost:3000/hobbies/${params.id}`),
         element: (
           <PrivateRoutes>
             <UpdateGroup></UpdateGroup>
@@ -100,7 +104,7 @@ const router = createBrowserRouter([
             </div>
           </>
         ),
-        loader: () => fetch("https://hobby-server-psi.vercel.app/hobbies"),
+        loader: () => fetch("http://localhost:3000/hobbies"),
         element: (
           <PrivateRoutes>
             <MyGroup></MyGroup>
@@ -121,6 +125,46 @@ const router = createBrowserRouter([
       {
         path: "/auth/login",
         element: <LogIn></LogIn>,
+      },
+    ],
+  },
+  {
+    path: "/",
+    element: <DashBoardLaout></DashBoardLaout>,
+    errorElement: <ErrorPage></ErrorPage>,
+    children: [
+      {
+        path: "/dashboard",
+        errorElement: <ErrorPage></ErrorPage>,
+        element: (
+          <PrivateRoutes>
+            <Dashboard></Dashboard>
+          </PrivateRoutes>
+        ),
+      },
+      {
+        path: "/dashboard/allgroup",
+        hydrateFallbackElement: (
+          <>
+            <div className="text-center">
+              <span className="loading loading-spinner loading-xl"></span>
+            </div>
+          </>
+        ),
+        errorElement: <ErrorPage></ErrorPage>,
+        element: <DashAllgroup></DashAllgroup>,
+      },
+      {
+        path: "/dashboard/my-group",
+        hydrateFallbackElement: (
+          <>
+            <div className="text-center">
+              <span className="loading loading-spinner loading-xl"></span>
+            </div>
+          </>
+        ),
+        errorElement: <ErrorPage></ErrorPage>,
+        element: <DashMyGroups></DashMyGroups>,
       },
     ],
   },

@@ -32,7 +32,7 @@ const Banner = () => {
             <div className="text-center">
               <img
                 src={banner_img1}
-                className="h-[20em] md:h-[35rem] w-11/12 mx-auto"
+                className="h-[30%] md:h-[25em] w-full"
                 alt=""
               />
             </div>
@@ -41,7 +41,7 @@ const Banner = () => {
             <div className="text-center">
               <img
                 src={banner_img2}
-                className="h-[20em] md:h-[35rem] w-11/12 mx-auto"
+                className="h-[30%] md:h-[25em] w-full"
                 alt=""
               />
             </div>
@@ -50,7 +50,7 @@ const Banner = () => {
             <div className="text-center">
               <img
                 src={banner_img3}
-                className="h-[20em] md:h-[35rem] w-11/12 mx-auto"
+                className="h-[30%] md:h-[25em] w-full"
                 alt=""
               />
             </div>
@@ -59,7 +59,7 @@ const Banner = () => {
             <div className="text-center">
               <img
                 src={banner_img4}
-                className="h-[20em] md:h-[35rem] w-11/12 mx-auto"
+                className="h-[30%] md:h-[25em] w-full"
                 alt=""
               />
             </div>
@@ -68,12 +68,12 @@ const Banner = () => {
             <div className="text-center">
               <img
                 src={banner_img5}
-                className="h-[20em] md:h-[35rem] w-11/12 mx-auto"
+                className="h-[30%] md:h-[25em] w-full"
                 alt=""
               />
             </div>
           </SwiperSlide>
-          <div className="absolute p-2 md:p-4 rounded-2xl z-5 text-white top-[10em] left-[2em] md:top-[17em] md:left-[5em] lg:top-[15em] lg:left-[8em]">
+          <div className="absolute p-2 md:p-4 rounded-2xl z-5 text-white top-[10em] left-[2em] md:top-[10em] md:left-[5em] lg:top-[10em] lg:left-[8em]">
             <div>
               <h1 className="text-2xl md:text-4xl font-bold text-white">
                 HobbyHub

@@ -1,15 +1,28 @@
-import React, { use, useState } from "react";
-import { Link, useLoaderData } from "react-router";
-import { AuthContext } from "../Context/AuthContext";
+import React, { use, useEffect, useState } from "react";
+import { Link } from "react-router";
+
 import { HiDocumentDownload } from "react-icons/hi";
 import { MdDelete } from "react-icons/md";
 import Swal from "sweetalert2";
+import { AuthContext } from "../../Context/AuthContext";
 
 const MyGroup = () => {
-  const mydatas = useLoaderData();
   const { user } = use(AuthContext);
-  const hobbies = mydatas.filter((hobby) => hobby.email === user.email);
-  const [mydata, setHobbies] = useState(hobbies);
+  console.log(user);
+  const [mydatas, setMydatas] = useState([]);
+  const [mydata, setHobbies] = useState([]);
+
+  useEffect(() => {
+    fetch("http://localhost:3000/hobbies")
+      .then((res) => res.json())
+      .then((data) => setMydatas(data));
+  }, []);
+  useEffect(() => {
+    if (user) {
+      const hobbies = mydatas.filter((hobby) => hobby.email === user.email);
+      setHobbies(hobbies);
+    }
+  }, [mydatas, user]);
 
   const handleDelete = (id) => {
     console.log(id);

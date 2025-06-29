@@ -15,7 +15,7 @@ const CreateGroup = () => {
     formData.append("date", startDate.toISOString().slice(0, 10));
     const groupData = Object.fromEntries(formData.entries());
     // fecth data
-    fetch("https://hobby-server-psi.vercel.app/hobbies", {
+    fetch("http://localhost:3000/hobbies", {
       method: "POST",
       headers: {
         "content-type": "application/json",

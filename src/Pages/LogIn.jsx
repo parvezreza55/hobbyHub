@@ -48,7 +48,7 @@ const LogIn = () => {
         const results = result.user;
         setUser(results);
         navigate(location.state || "/");
-        fetch("https://hobby-server-psi.vercel.app/user", {
+        fetch("http://localhost:3000/user", {
           method: "POST",
           headers: {
             "content-type": "application/json",
